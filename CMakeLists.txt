@@ -11,14 +11,14 @@ add_subdirectory(third_party/userver)
 add_library(${PROJECT_NAME}_objs OBJECT
     src/hello.hpp
     src/hello.cpp
+    src/ui.cpp
+    src/ui.hpp
 )
 target_link_libraries(${PROJECT_NAME}_objs PUBLIC userver-core)
 
 
 # The Service
-add_executable(${PROJECT_NAME} src/main.cpp
-        src/ui.cpp
-        src/ui.hpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_objs)
 
 
